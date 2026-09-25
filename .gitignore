@@ -1,0 +1,17 @@
+# Minecraft server data
+data/
+
+# Backups
+backups/
+
+# Environment variables
+.env
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
