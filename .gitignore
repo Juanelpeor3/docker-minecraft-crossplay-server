@@ -4,6 +4,9 @@ data/
 # Backups
 backups/
 
+# Postgres data
+pgdata/
+
 # Environment variables
 .env
 

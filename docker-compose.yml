@@ -33,6 +33,11 @@ services:
       ENABLE_WHITELIST: ${ENABLE_WHITELIST:-false}
       WHITELIST: ${WHITELIST:-}
 
+      # RCON
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: ${RCON_PASSWORD:?rcon password required}
+      RCON_PORT: 25575
+
       # Plugins (direct download from GeyserMC build server)
       PLUGINS: |
         https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
@@ -47,6 +52,9 @@ services:
       start_period: 2m
       interval: 30s
       retries: 6
+
+    networks:
+      - internal
 
   # Automatic Backups
   backups:
@@ -63,8 +71,34 @@ services:
       # How long to keep old backups
       PRUNE_BACKUPS_DAYS: ${PRUNE_BACKUPS_DAYS:-7}
       RCON_HOST: minecraft
+      RCON_PASSWORD: ${RCON_PASSWORD}
       INITIAL_DELAY: 0
 
     volumes:
       - ./data:/data:ro
       - ./backups:/backups
+
+    networks:
+      - internal
+
+  # Dashboard Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: minecraft-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-mcdashboard}
+      POSTGRES_USER: ${POSTGRES_USER:-mcadmin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?postgres password required}
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-mcadmin} -d ${POSTGRES_DB:-mcdashboard}"]
+      interval: 10s
+      retries: 5
+
+networks:
+  internal:
+    driver: bridge
