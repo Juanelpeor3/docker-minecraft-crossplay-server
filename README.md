@@ -4,8 +4,6 @@
 
 Minecraft server with crossplay support between **Java Edition** and **Bedrock Edition** using Docker, GeyserMC and Floodgate.
 
-> **Note:** Bedrock players cannot join until Paper updates to the latest Minecraft version and GeyserMC releases a compatible build.
-
 > **Warning:** By setting `EULA=TRUE` in your `.env` file, you are accepting the [Minecraft End User License Agreement](https://www.minecraft.net/en-us/eula).
 
 > **Disclaimer:** This project is not affiliated with, maintained, authorized, or endorsed by Mojang Studios, Microsoft, or any of their subsidiaries or affiliates.
@@ -90,6 +88,7 @@ docker compose restart
 
 - **[GeyserMC](https://geysermc.org/)** — Allows Bedrock players to connect to the Java server
 - **[Floodgate](https://wiki.geysermc.org/floodgate/)** — Allows authentication via Xbox Live (no Java account needed)
+- **[ViaVersion](https://viaversion.com/)** — Allows newer Minecraft clients to connect while Paper updates to the latest version
 
 ## Whitelist
 
