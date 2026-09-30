@@ -80,8 +80,8 @@ public class ServerStatusService {
             List<PlayerResponse> onlineDtos = new ArrayList<>();
 
             if (!playerList.isEmpty()) {
-                for (String name : playerList.split(",\\s*")) {
-                    name = name.trim();
+                for (String raw : playerList.split(",\\s*")) {
+                    String name = raw.trim();
                     if (name.isEmpty()) continue;
                     currentPlayers.add(name);
 
