@@ -87,6 +87,8 @@ services:
     image: postgres:16-alpine
     container_name: minecraft-postgres
     restart: unless-stopped
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-mcdashboard}
       POSTGRES_USER: ${POSTGRES_USER:-mcadmin}
@@ -99,6 +101,29 @@ services:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-mcadmin} -d ${POSTGRES_DB:-mcdashboard}"]
       interval: 10s
       retries: 5
+
+  # Dashboard Backend
+  backend:
+    build: ./backend/mcdashboard
+    container_name: minecraft-backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      minecraft:
+        condition: service_healthy
+    environment:
+      RCON_HOST: minecraft
+      RCON_PORT: 25575
+      RCON_PASSWORD: ${RCON_PASSWORD}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-mcdashboard}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-mcadmin}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET:?jwt secret required}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?admin password required}
+    networks:
+      - internal
 
 networks:
   internal:
