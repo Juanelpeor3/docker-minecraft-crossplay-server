@@ -104,7 +104,7 @@ services:
 
   # Dashboard Backend
   backend:
-    build: ./backend/mcdashboard
+    build: ./backend
     container_name: minecraft-backend
     restart: unless-stopped
     depends_on:
