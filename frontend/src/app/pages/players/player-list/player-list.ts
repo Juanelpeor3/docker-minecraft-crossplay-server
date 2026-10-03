@@ -2,8 +2,8 @@ import { Component, inject, OnInit, signal, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { ApiService } from '../../../core/api.service';
-import { Player } from '../../../core/models';
+import { ApiService } from '../../../services/api/api.service';
+import { Player } from '../../../models';
 
 @Component({
   selector: 'app-player-list',

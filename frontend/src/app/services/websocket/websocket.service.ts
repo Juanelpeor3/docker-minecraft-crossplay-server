@@ -1,9 +1,9 @@
 import { Injectable, inject, OnDestroy } from '@angular/core';
 import { Client, IMessage } from '@stomp/stompjs';
 import { Subject } from 'rxjs';
-import { environment } from '../../environments/environment';
-import { AuthService } from './auth.service';
-import { ServerStatus } from './models';
+import { environment } from '../../../environments/environment';
+import { AuthService } from '../auth/auth.service';
+import { ServerStatus } from '../../models';
 
 @Injectable({ providedIn: 'root' })
 export class WebSocketService implements OnDestroy {

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { AuthService } from '../core/auth.service';
+import { AuthService } from '../services/auth/auth.service';
 
 interface NavLink {
   path: string;

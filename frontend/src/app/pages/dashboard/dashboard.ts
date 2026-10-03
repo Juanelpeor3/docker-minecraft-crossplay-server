@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, OnDestroy, signal } from '@angular/core';
-import { ApiService } from '../../core/api.service';
-import { WebSocketService } from '../../core/websocket.service';
-import { ServerStatus } from '../../core/models';
+import { ApiService } from '../../services/api/api.service';
+import { WebSocketService } from '../../services/websocket/websocket.service';
+import { ServerStatus } from '../../models';
 import { PlayerCardComponent } from '../../shared/player-card/player-card';
 import { StatusBadgeComponent } from '../../shared/status-badge/status-badge';
 import { Subject, interval, switchMap, takeUntil } from 'rxjs';

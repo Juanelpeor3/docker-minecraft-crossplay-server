@@ -1,8 +1,8 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
-import { ApiService } from '../../../core/api.service';
-import { Player, Session } from '../../../core/models';
+import { ApiService } from '../../../services/api/api.service';
+import { Player, Session } from '../../../models';
 
 @Component({
   selector: 'app-player-detail',
