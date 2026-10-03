@@ -1,0 +1,49 @@
+<div class="animate-fade-in">
+  <h2 class="mc-title text-mc-red text-base mb-6">Administracion</h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <!-- Command Execution -->
+    <div class="mc-panel rounded-sm p-6">
+      <h3 class="text-xs font-medium text-mc-gray uppercase tracking-wider mb-4">Ejecutar comando</h3>
+      <form (ngSubmit)="executeCommand()">
+        <div class="flex gap-2">
+          <input type="text" [(ngModel)]="command" name="command" placeholder="Escribe un comando RCON..."
+            class="mc-input flex-1 px-3 py-2.5 rounded-sm font-mono text-sm" />
+          <button type="submit" [disabled]="!command || commandLoading()"
+            class="mc-btn mc-btn-primary px-4 py-2.5 rounded-sm text-sm">
+            Ejecutar
+          </button>
+        </div>
+      </form>
+      @if (commandResult()) {
+      <div class="mt-4 p-3 bg-mc-dark border border-mc-border rounded-sm animate-slide-up">
+        <pre class="text-sm text-mc-text font-mono whitespace-pre-wrap">{{ commandResult() }}</pre>
+      </div>
+      }
+    </div>
+
+    <!-- Whitelist Management -->
+    <div class="mc-panel rounded-sm p-6">
+      <h3 class="text-xs font-medium text-mc-gray uppercase tracking-wider mb-4">Whitelist</h3>
+      <div class="space-y-3">
+        <input type="text" [(ngModel)]="whitelistPlayer" placeholder="Nombre del jugador"
+          class="mc-input w-full px-3 py-2.5 rounded-sm text-sm" />
+        <div class="flex gap-2">
+          <button type="button" (click)="executeWhitelist('add')" [disabled]="!whitelistPlayer || whitelistLoading()"
+            class="mc-btn mc-btn-primary flex-1 px-4 py-2.5 rounded-sm text-sm">
+            Agregar
+          </button>
+          <button type="button" (click)="executeWhitelist('remove')" [disabled]="!whitelistPlayer || whitelistLoading()"
+            class="mc-btn mc-btn-danger flex-1 px-4 py-2.5 rounded-sm text-sm">
+            Quitar
+          </button>
+        </div>
+      </div>
+      @if (whitelistResult()) {
+      <div class="mt-4 p-3 bg-mc-dark border border-mc-border rounded-sm animate-slide-up">
+        <pre class="text-sm text-mc-text font-mono whitespace-pre-wrap">{{ whitelistResult() }}</pre>
+      </div>
+      }
+    </div>
+  </div>
+</div>

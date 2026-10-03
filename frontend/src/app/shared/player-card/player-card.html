@@ -1,0 +1,17 @@
+<div
+  class="mc-panel rounded-sm p-4 flex items-center gap-3 hover:border-mc-border-light transition-colors duration-150 cursor-default">
+  <div
+    class="w-10 h-10 bg-mc-surface border border-mc-border-light rounded-sm flex items-center justify-center text-sm font-bold text-mc-green shrink-0">
+    {{ player().name.charAt(0).toUpperCase() }}
+  </div>
+  <div class="min-w-0">
+    <p class="text-sm font-medium text-white truncate">{{ player().name }}</p>
+    <span class="px-1.5 py-0.5 rounded-sm text-xs font-medium border" [class]="
+        player().platform === 'BEDROCK'
+          ? 'bg-mc-aqua/10 text-mc-aqua border-mc-aqua/20'
+          : 'bg-mc-gold/10 text-mc-gold border-mc-gold/20'
+      ">
+      {{ player().platform }}
+    </span>
+  </div>
+</div>

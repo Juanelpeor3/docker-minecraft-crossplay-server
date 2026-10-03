@@ -1,0 +1,33 @@
+<div class="min-h-screen bg-mc-dark flex items-center justify-center p-4">
+  <div class="w-full max-w-sm animate-fade-in">
+    <div class="text-center mb-8">
+      <h1 class="mc-title text-mc-green text-lg">MC Dashboard</h1>
+      <p class="text-mc-gray mt-3 text-sm">Inicia sesion para continuar</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" class="mc-panel rounded-sm p-6">
+      @if (error()) {
+      <div class="mb-4 p-3 rounded-sm bg-mc-red/10 border border-mc-red/30 text-mc-red text-sm animate-slide-up">
+        {{ error() }}
+      </div>
+      }
+
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-mc-gray mb-1.5">Usuario</label>
+          <input type="text" [(ngModel)]="username" name="username" required
+            class="mc-input w-full px-3 py-2.5 rounded-sm text-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-mc-gray mb-1.5">Contrasena</label>
+          <input type="password" [(ngModel)]="password" name="password" required
+            class="mc-input w-full px-3 py-2.5 rounded-sm text-sm" />
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="loading()" class="mc-btn mc-btn-primary mt-6 w-full py-2.5 rounded-sm text-sm">
+        {{ loading() ? 'Ingresando...' : 'Ingresar' }}
+      </button>
+    </form>
+  </div>
+</div>
