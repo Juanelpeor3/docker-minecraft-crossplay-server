@@ -20,8 +20,8 @@ services:
       MEMORY: ${MEMORY:-2G}
 
       # Server Properties
-      SERVER_NAME: ${SERVER_NAME:-Mi Servidor Minecraft}
-      MOTD: ${MOTD:-Servidor Minecraft Crossplay}
+      SERVER_NAME: ${SERVER_NAME:-My Minecraft Server}
+      MOTD: ${MOTD:-Crossplay Server}
       GAMEMODE: ${GAMEMODE:-survival}
       DIFFICULTY: ${DIFFICULTY:-normal}
       MAX_PLAYERS: ${MAX_PLAYERS:-20}
@@ -87,6 +87,7 @@ services:
     image: postgres:16-alpine
     container_name: minecraft-postgres
     restart: unless-stopped
+    profiles: [dashboard]
     ports:
       - "5432:5432"
     environment:
@@ -107,6 +108,7 @@ services:
     build: ./backend
     container_name: minecraft-backend
     restart: unless-stopped
+    profiles: [dashboard]
     depends_on:
       postgres:
         condition: service_healthy
@@ -130,6 +132,7 @@ services:
     build: ./frontend
     container_name: minecraft-frontend
     restart: unless-stopped
+    profiles: [dashboard]
     ports:
       - "4200:80"
     depends_on:
