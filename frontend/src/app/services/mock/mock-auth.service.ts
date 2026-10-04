@@ -18,7 +18,7 @@ export class MockAuthService {
   readonly isAuthenticated = computed(() => !!this._token());
 
   login(credentials: LoginRequest): Observable<LoginResponse> {
-    if (credentials.username === 'admin' && credentials.password === 'admin') {
+    if (credentials.username === 'admin' && credentials.password === 'Admin123') {
       return of({ token: DEMO_TOKEN }).pipe(
         delay(400),
         tap((res) => {

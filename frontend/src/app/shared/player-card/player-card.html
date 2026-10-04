@@ -2,7 +2,9 @@
   class="mc-panel rounded-sm p-4 flex items-center gap-3 hover:border-mc-border-light transition-colors duration-150 cursor-default">
   <div
     class="w-10 h-10 bg-mc-surface border border-mc-border-light rounded-sm flex items-center justify-center text-sm font-bold text-mc-green shrink-0">
-    {{ player().name.charAt(0).toUpperCase() }}
+    {{ player().name.charAt(0) === '.'
+    ? player().name.charAt(1).toUpperCase()
+    : player().name.charAt(0).toUpperCase() }}
   </div>
   <div class="min-w-0">
     <p class="text-sm font-medium text-white truncate">{{ player().name }}</p>

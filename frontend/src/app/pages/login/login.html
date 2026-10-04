@@ -19,10 +19,15 @@
             class="mc-input w-full px-3 py-2.5 rounded-sm text-sm" />
         </div>
         <div>
-          <label class="block text-sm font-medium text-mc-gray mb-1.5">Contrasena</label>
+          <label class="block text-sm font-medium text-mc-gray mb-1.5">Contraseña</label>
           <input type="password" [(ngModel)]="password" name="password" required
             class="mc-input w-full px-3 py-2.5 rounded-sm text-sm" />
         </div>
+        @if (isDemo) {
+        <div class="mt-2 p-2 bg-mc-surface rounded-sm border-l-4 border-mc-green text-sm text-mc-gray">
+          <p><strong class="text-mc-green">Demo:</strong> admin / Admin123</p>
+        </div>
+        }
       </div>
 
       <button type="submit" [disabled]="loading()" class="mc-btn mc-btn-primary mt-6 w-full py-2.5 rounded-sm text-sm">

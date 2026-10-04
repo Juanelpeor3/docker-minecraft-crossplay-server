@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../services/auth/auth.service';
+import { Footer } from '../shared/footer/footer';
 
 interface NavLink {
   path: string;
@@ -12,7 +13,7 @@ interface NavLink {
 
 @Component({
   selector: 'app-layout',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, Footer],
   templateUrl: './layout.html',
 })
 export class LayoutComponent {
