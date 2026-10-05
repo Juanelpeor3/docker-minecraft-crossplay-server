@@ -31,20 +31,20 @@ Minecraft server with crossplay support between **Java Edition** and **Bedrock E
  Outside Docker               docker-compose · internal network
 ┌──────────────┐     ┌─────────────────────────────────────────────┐
 │   Players    │     │  GAME SERVER                                │
-│ Java/Bedrock │────▶│  ┌────────────────┐      ┌───────────────┐  │
-└──────────────┘     │  │   Minecraft    │◀─────│    Backups    │  │
+│ Java/Bedrock │────>│  ┌────────────────┐      ┌───────────────┐  │
+└──────────────┘     │  │   Minecraft    │<─────│    Backups    │  │
                      │  │ Paper+GeyserMC │      │ itzg/mc-backup│  │
                      │  └────────────────┘      └───────────────┘  │
-                     │          ▲                                  │
+                     │          ^                                  │
                      │          │ RCON                             │
                      │  DASHBOARD                                  │
                      │  ┌────────────────┐      ┌───────────────┐  │
-                     │  │    Backend     │─────▶│   Postgres    │  │
+                     │  │    Backend     │─────>│   Postgres    │  │
                      │  │  Spring Boot   │      │ PostgreSQL 16 │  │
                      │  └────────────────┘      └───────────────┘  │
-                     │          ▲                                  │
+                     │          ^                                  │
 ┌──────────────┐     │  ┌────────────────┐                         │
-│    Admin     │────▶│  │    Frontend    │                         │
+│    Admin     │────>│  │    Frontend    │                         │
 │   Browser    │     │  │ Angular + nginx│                         │
 └──────────────┘     │  └────────────────┘                         │
                      └─────────────────────────────────────────────┘
