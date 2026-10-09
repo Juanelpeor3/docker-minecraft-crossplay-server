@@ -22,6 +22,7 @@ services:
       # Server Properties
       SERVER_NAME: ${SERVER_NAME:-My Minecraft Server}
       MOTD: ${MOTD:-Crossplay Server}
+      ICON: ${ICON:-}
       GAMEMODE: ${GAMEMODE:-survival}
       DIFFICULTY: ${DIFFICULTY:-normal}
       MAX_PLAYERS: ${MAX_PLAYERS:-20}
