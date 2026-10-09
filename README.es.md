@@ -21,9 +21,11 @@
 
 Servidor de Minecraft con soporte crossplay entre **Java Edition** y **Bedrock Edition** usando Docker, GeyserMC y Floodgate. Incluye un **dashboard de administracion** con tracking de jugadores en tiempo real, historial de sesiones y gestion del servidor.
 
-> **Aviso:** Al establecer `EULA=TRUE` en tu archivo `.env`, estas aceptando el [Acuerdo de Licencia de Usuario Final de Minecraft](https://www.minecraft.net/es-es/eula).
+> [!IMPORTANT]
+> Al establecer `EULA=TRUE` en tu archivo `.env`, estas aceptando el [Acuerdo de Licencia de Usuario Final de Minecraft](https://www.minecraft.net/es-es/eula).
 
-> **Disclaimer:** Este proyecto no esta afiliado, mantenido, autorizado ni respaldado por Mojang Studios, Microsoft, ni ninguna de sus filiales o subsidiarias.
+> [!NOTE]
+> Este proyecto no esta afiliado, mantenido, autorizado ni respaldado por Mojang Studios, Microsoft, ni ninguna de sus filiales o subsidiarias.
 
 ## Arquitectura
 
