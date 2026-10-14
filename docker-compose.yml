@@ -17,6 +17,7 @@ services:
       # Server Core
       EULA: ${EULA:-TRUE}
       TYPE: PAPER
+      VERSION: ${VERSION:-LATEST}
       MEMORY: ${MEMORY:-2G}
 
       # Server Properties
