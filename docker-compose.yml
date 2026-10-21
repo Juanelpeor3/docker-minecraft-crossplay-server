@@ -34,6 +34,7 @@ services:
       VIEW_DISTANCE: ${VIEW_DISTANCE:-10}
       ENABLE_WHITELIST: ${ENABLE_WHITELIST:-false}
       WHITELIST: ${WHITELIST:-}
+      ENFORCE_SECURE_PROFILE: "false"
 
       # RCON
       ENABLE_RCON: "true"
