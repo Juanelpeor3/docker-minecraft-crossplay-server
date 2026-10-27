@@ -10,8 +10,9 @@ services:
       # Java Edition (TCP + UDP)
       - "25565:25565/tcp"
       - "25565:25565/udp"
-      # Bedrock Edition (GeyserMC)
+      # Bedrock Edition (GeyserMC - NetherNet Port)
       - "19132:19132/udp"
+      - "19132:19132/tcp"
 
     environment:
       # Server Core
